@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  # Make the todo_list#index action the root of the application
+  root to: "todo_lists#index"
+
+  #Access :todo_list resources at URI /todo_lists
+  resources :todo_lists do
+  # Access :todo_item resources at URI /todo_lists/:todo_list_id/todo_items
+    resources :todo_items
+  end
+  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
