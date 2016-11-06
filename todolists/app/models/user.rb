@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+
+	# This will define a password property that will get processed into an encrpyted hash stored in the password_digest database column. 
+	has_secure_password
+
 	has_one :profile, dependent: :destroy
 	has_many :todo_lists, dependent: :destroy
 	# Implement a 1:many through relationship from User to ToDoItem by using the 1:many relationship from User to ToDoLists as a source. 
