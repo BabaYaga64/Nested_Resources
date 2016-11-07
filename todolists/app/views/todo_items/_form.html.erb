@@ -23,10 +23,13 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+ <!--  Make the display of completed conditional on the todo_item being edited versus new. Users should not be allowed to see/change the completed property for a new TodoItem. Edited objects are persisted and can be tested using persisted?. . -->
+  <% if @todo_item.persisted? %>
   <div class="field">
     <%= f.label :completed %><br>
     <%= f.check_box :completed %>
   </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
