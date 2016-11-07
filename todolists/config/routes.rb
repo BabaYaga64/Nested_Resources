@@ -1,14 +1,5 @@
 Rails.application.routes.draw do
 
-  # Create a new controller to manage the user's session when interacting with the server.
-  resources :sessions, only: [:new, :create, :destroy] 
-
-  # Map the GET /login action to sessions#new in config/routes.rb. Have this be referred to as the login resource so rake routes generates a login_path helper.
-  get "/login" => "sessions#new", as: "login"
-
-  # Map the DELETE /login action to sessions#destroy in config/routes.rb. Have this referred to as the logout resource so rake routes reports a logout_path helper.
-  delete "/logout" => "sessions#destroy", as: "logout"
-
   # Make the todo_list#index action the root of the application
   root to: "todo_lists#index"
 
@@ -18,6 +9,14 @@ Rails.application.routes.draw do
     resources :todo_items
   end
   
+  # Create a new controller to manage the user's session when interacting with the server.
+  resources :sessions, only: [:new, :create, :destroy] 
+
+  # Map the GET /login action to sessions#new in config/routes.rb. Have this be referred to as the login resource so rake routes generates a login_path helper.
+  get "/login" => "sessions#new", as: "login"
+
+  # Map the DELETE /login action to sessions#destroy in config/routes.rb. Have this referred to as the logout resource so rake routes reports a logout_path helper.
+  delete "/logout" => "sessions#destroy", as: "logout"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
