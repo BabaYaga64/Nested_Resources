@@ -1,1 +1,1 @@
-json.partial! "to_do_items/to_do_item", to_do_item: @to_do_item
+json.partial! "todo_items/todo_item", todo_item: @todo_item

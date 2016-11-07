@@ -1,1 +1,1 @@
-json.array! @to_do_items, partial: 'to_do_items/to_do_item', as: :to_do_item
+json.array! @todo_items, partial: 'todo_items/todo_item', as: :todo_item
